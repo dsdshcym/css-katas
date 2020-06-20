@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="/style/output.css" />
 
     <script
+      type="text/javascript"
+      src="https://unpkg.com/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"
+    ></script>
+
+    <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
@@ -15,15 +20,13 @@
 
   <body>
     <div x-data="test()" class="container mx-auto">
+      <p id="result"></p>
+      <button x-on:click="check()">Check</button>
+
       <textarea x-model="input" rows="5" class="w-full font-mono"></textarea>
       <div class="flex justify-between">
-        <div x-html="input" class="px-4 py-4"></div>
-
-        <div id="answer-1" class="px-4 py-4">
-          <button class="px-4 py-2 bg-indigo-600 text-white rounded">
-            Submit
-          </button>
-        </div>
+        <div id="input-1" x-html="input" class="px-4 py-4"></div>
+        <div id="answer-1" x-html="answer" class="px-4 py-4"></div>
       </div>
     </div>
 
@@ -33,6 +36,39 @@
           input: `<button class="">
   Submit
 </button>`,
+          answer: `<button class="px-4 py-2 bg-indigo-600 text-white rounded">
+            Submit
+          </button>`,
+          check() {
+            var scale = 2;
+            var target = document.getElementById("answer-1");
+            domtoimage
+              .toPixelData(target, {
+                width: target.clientWidth * scale,
+                height: target.clientHeight * scale,
+                style: {
+                  transform: `scale(${scale})`,
+                  transformOrigin: "top left",
+                },
+              })
+              .then(function (targetPixels) {
+                var work = document.getElementById("input-1");
+                domtoimage
+                  .toPixelData(work, {
+                    width: work.clientWidth * scale,
+                    height: work.clientHeight * scale,
+                    style: {
+                      transform: `scale(${scale})`,
+                      transformOrigin: "top left",
+                    },
+                  })
+                  .then(function (workPixels) {
+                    document.getElementById("result").innerText =
+                      JSON.stringify(targetPixels) ==
+                      JSON.stringify(workPixels);
+                  });
+              });
+          },
         };
       }
     </script>
