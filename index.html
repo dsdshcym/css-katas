@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interactive Tailwind CSS Tutorial</title>
+    <link rel="stylesheet" href="/style/output.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <div x-data="test()" class="container mx-auto">
+      <textarea x-model="input" rows="5" class="w-full font-mono"></textarea>
+      <div class="flex justify-between">
+        <div x-html="input" class="px-4 py-4"></div>
+
+        <div id="answer-1" class="px-4 py-4">
+          <button class="px-4 py-2 bg-indigo-600 text-white rounded">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function test() {
+        return {
+          input: `<button class="">
+  Submit
+</button>`,
+        };
+      }
+    </script>
+  </body>
+</html>
