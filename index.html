@@ -20,7 +20,7 @@
 
   <body>
     <div x-data="test()" class="container mx-auto">
-      <p id="result"></p>
+      <p x-text="result"></p>
       <button x-on:click="check()">Check</button>
 
       <textarea x-model="input" rows="5" class="w-full font-mono"></textarea>
@@ -57,6 +57,7 @@
 
       function test() {
         return {
+          result: "",
           input: `<div class="h-10 w-64 border">
   Center Me!
 </div>`,
@@ -71,10 +72,10 @@
               target,
               work,
               () => {
-                document.getElementById("result").innerText = "true";
+                this.result = "true";
               },
               () => {
-                document.getElementById("result").innerText = "false";
+                this.result = "false";
               }
             );
           },
