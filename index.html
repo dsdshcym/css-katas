@@ -31,43 +31,47 @@
     </div>
 
     <script type="text/javascript">
-      function test() {
-        return {
-          input: `<button class="">
-  Submit
-</button>`,
-          answer: `<button class="px-4 py-2 bg-indigo-600 text-white rounded">
-            Submit
-          </button>`,
-          check() {
-            var scale = 2;
-            var target = document.getElementById("answer-1");
+      function diff(dom1, dom2) {
+        var scale = 2;
+        domtoimage
+          .toPixelData(dom1, {
+            width: dom1.clientWidth * scale,
+            height: dom1.clientHeight * scale,
+            style: {
+              transform: `scale(${scale})`,
+              transformOrigin: "top left",
+            },
+          })
+          .then(function (domPixels1) {
             domtoimage
-              .toPixelData(target, {
-                width: target.clientWidth * scale,
-                height: target.clientHeight * scale,
+              .toPixelData(dom2, {
+                width: dom2.clientWidth * scale,
+                height: dom2.clientHeight * scale,
                 style: {
                   transform: `scale(${scale})`,
                   transformOrigin: "top left",
                 },
               })
-              .then(function (targetPixels) {
-                var work = document.getElementById("input-1");
-                domtoimage
-                  .toPixelData(work, {
-                    width: work.clientWidth * scale,
-                    height: work.clientHeight * scale,
-                    style: {
-                      transform: `scale(${scale})`,
-                      transformOrigin: "top left",
-                    },
-                  })
-                  .then(function (workPixels) {
-                    document.getElementById("result").innerText =
-                      JSON.stringify(targetPixels) ==
-                      JSON.stringify(workPixels);
-                  });
+              .then(function (domPixels2) {
+                document.getElementById("result").innerText =
+                  JSON.stringify(domPixels1) == JSON.stringify(domPixels2);
               });
+          });
+      }
+
+      function test() {
+        return {
+          input: `<div class="h-10 w-64 border">
+  Center Me!
+</div>`,
+          answer: `<div class="h-10 w-64 border flex items-center justify-center">
+  Center Me!
+</div>`,
+          check() {
+            var target = document.getElementById("answer-1");
+            var work = document.getElementById("input-1");
+
+            diff(target, work);
           },
         };
       }
