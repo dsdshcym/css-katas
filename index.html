@@ -25,8 +25,8 @@
 
       <textarea x-model="input" rows="5" class="w-full font-mono"></textarea>
       <div class="flex justify-between">
-        <div id="input-1" x-html="input" class="px-4 py-4"></div>
-        <div id="answer-1" x-html="answer" class="px-4 py-4"></div>
+        <div x-ref="input_1" x-html="input" class="px-4 py-4"></div>
+        <div x-ref="answer_1" x-html="answer" class="px-4 py-4"></div>
       </div>
     </div>
 
@@ -64,8 +64,8 @@
   Center Me!
 </div>`,
           check() {
-            var target = document.getElementById("answer-1");
-            var work = document.getElementById("input-1");
+            var target = this.$refs.answer_1;
+            var work = this.$refs.input_1;
 
             diff(
               target,
