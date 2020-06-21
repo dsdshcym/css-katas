@@ -32,7 +32,7 @@
           </div>
 
           <div class="flex items-center px-4">
-            <p x-text="result" class="flex-1"></p>
+            <p x-text="flash" class="flex-1"></p>
             <button
               x-on:click="check()"
               class="rounded px-4 py-2 text-white bg-indigo-600"
@@ -84,7 +84,7 @@
 
       function test() {
         return {
-          result: "",
+          flash: "",
           input: `<div class="h-10 border">
   Center Me!
 </div>`,
@@ -99,10 +99,10 @@
               target,
               work,
               () => {
-                this.result = "true";
+                this.flash = "true";
               },
               () => {
-                this.result = "false";
+                this.flash = "false";
               }
             );
           },
