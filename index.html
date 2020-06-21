@@ -27,8 +27,15 @@
         <textarea x-model="input" rows="5" class="w-1/2 font-mono"></textarea>
 
         <div class="w-1/2 flex flex-col justify-between items-center">
-          <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
-          <div x-ref="answer_output" x-html="answer" class="px-4 py-4"></div>
+          <div>
+            <label for="user_output">Preview:</label>
+            <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
+          </div>
+
+          <div>
+            <label for="answer_output">Design:</label>
+            <div x-ref="answer_output" x-html="answer" class="px-4 py-4"></div>
+          </div>
         </div>
       </div>
     </div>
