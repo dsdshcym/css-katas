@@ -31,35 +31,28 @@
     </div>
 
     <script type="text/javascript">
-      function diff(dom1, dom2, successFn, failureFn) {
+      function toPixelData(dom) {
         var scale = 2;
-        domtoimage
-          .toPixelData(dom1, {
-            width: dom1.clientWidth * scale,
-            height: dom1.clientHeight * scale,
-            style: {
-              transform: `scale(${scale})`,
-              transformOrigin: "top left",
-            },
-          })
-          .then(function (domPixels1) {
-            domtoimage
-              .toPixelData(dom2, {
-                width: dom2.clientWidth * scale,
-                height: dom2.clientHeight * scale,
-                style: {
-                  transform: `scale(${scale})`,
-                  transformOrigin: "top left",
-                },
-              })
-              .then(function (domPixels2) {
-                if (JSON.stringify(domPixels1) == JSON.stringify(domPixels2)) {
-                  successFn();
-                } else {
-                  failureFn();
-                }
-              });
+        return domtoimage.toPixelData(dom, {
+          width: dom.clientWidth * scale,
+          height: dom.clientHeight * scale,
+          style: {
+            transform: `scale(${scale})`,
+            transformOrigin: "top left",
+          },
+        });
+      }
+
+      function diff(dom1, dom2, successFn, failureFn) {
+        toPixelData(dom1).then(function (domPixels1) {
+          toPixelData(dom2).then(function (domPixels2) {
+            if (JSON.stringify(domPixels1) == JSON.stringify(domPixels2)) {
+              successFn();
+            } else {
+              failureFn();
+            }
           });
+        });
       }
 
       function test() {
