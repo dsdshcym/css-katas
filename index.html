@@ -26,7 +26,7 @@
       <div class="flex">
         <textarea x-model="input" rows="5" class="w-1/2 font-mono"></textarea>
 
-        <div class="w-1/2 flex flex-col justify-between items-center">
+        <div class="w-1/2 flex flex-col justify-between">
           <div>
             <label for="user_output">Preview:</label>
             <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
@@ -68,10 +68,10 @@
       function test() {
         return {
           result: "",
-          input: `<div class="h-10 w-64 border">
+          input: `<div class="h-10 border">
   Center Me!
 </div>`,
-          answer: `<div class="h-10 w-64 border flex items-center justify-center">
+          answer: `<div class="h-10 border flex items-center justify-center">
   Center Me!
 </div>`,
           check() {
