@@ -26,6 +26,7 @@
             <label for="input">Your solution:</label>
             <textarea
               x-model="input"
+              x-on:keydown="resetFlash()"
               rows="5"
               class="w-full font-mono resize-none"
             ></textarea>
@@ -93,6 +94,9 @@
           answer: `<div class="h-10 border flex items-center justify-center">
   Center Me!
 </div>`,
+          resetFlash() {
+            this.flash = default_flash;
+          },
           check() {
             var target = this.$refs.answer_output;
             var work = this.$refs.user_output;
