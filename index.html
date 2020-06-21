@@ -20,9 +20,9 @@
 
   <body>
     <div x-data="test()" class="container mx-auto">
-      <div class="flex flex-col">
-        <div class="flex divide-x border border-b-0 rounded-t">
-          <div class="px-4 w-1/2">
+      <div class="flex divide-x border rounded">
+        <div class="px-4 w-1/2 flex flex-col justify-between">
+          <div>
             <label for="input">Your solution:</label>
             <textarea
               x-model="input"
@@ -31,25 +31,7 @@
             ></textarea>
           </div>
 
-          <div class="w-1/2 flex flex-col justify-between divide-y">
-            <div class="px-4 py-2">
-              <label for="user_output">Preview:</label>
-              <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
-            </div>
-
-            <div class="px-4 py-2">
-              <label for="answer_output">Design:</label>
-              <div
-                x-ref="answer_output"
-                x-html="answer"
-                class="px-4 py-4"
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex divide-x border border-t-0 rounded-b">
-          <div class="w-1/2 flex items-center px-4 py-2">
+          <div class="flex items-center px-4">
             <p x-text="result" class="flex-1"></p>
             <button
               x-on:click="check()"
@@ -59,6 +41,18 @@
             </button>
           </div>
           <div></div>
+        </div>
+
+        <div class="w-1/2 flex flex-col justify-between divide-y">
+          <div class="px-4 py-2">
+            <label for="user_output">Preview:</label>
+            <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
+          </div>
+
+          <div class="px-4 py-2">
+            <label for="answer_output">Design:</label>
+            <div x-ref="answer_output" x-html="answer" class="px-4 py-4"></div>
+          </div>
         </div>
       </div>
     </div>
