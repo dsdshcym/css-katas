@@ -20,22 +20,34 @@
 
   <body>
     <div x-data="test()" class="container mx-auto">
-      <p x-text="result"></p>
-      <button x-on:click="check()">Check</button>
+      <div class="flex flex-col">
+        <div class="flex">
+          <textarea
+            x-model="input"
+            rows="5"
+            class="w-1/2 font-mono resize-none"
+          ></textarea>
 
-      <div class="flex">
-        <textarea x-model="input" rows="5" class="w-1/2 font-mono"></textarea>
+          <div class="w-1/2 flex flex-col justify-between">
+            <div>
+              <label for="user_output">Preview:</label>
+              <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
+            </div>
 
-        <div class="w-1/2 flex flex-col justify-between">
-          <div>
-            <label for="user_output">Preview:</label>
-            <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
+            <div>
+              <label for="answer_output">Design:</label>
+              <div
+                x-ref="answer_output"
+                x-html="answer"
+                class="px-4 py-4"
+              ></div>
+            </div>
           </div>
+        </div>
 
-          <div>
-            <label for="answer_output">Design:</label>
-            <div x-ref="answer_output" x-html="answer" class="px-4 py-4"></div>
-          </div>
+        <div class="w-1/2 flex items-center">
+          <p x-text="result" class="flex-1"></p>
+          <button x-on:click="check()">Check</button>
         </div>
       </div>
     </div>
