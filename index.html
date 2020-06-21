@@ -21,20 +21,22 @@
   <body>
     <div x-data="test()" class="container mx-auto">
       <div class="flex flex-col">
-        <div class="flex">
-          <textarea
-            x-model="input"
-            rows="5"
-            class="w-1/2 font-mono resize-none"
-          ></textarea>
+        <div class="flex divide-x border border-b-0 rounded-t">
+          <div class="px-4 w-1/2">
+            <textarea
+              x-model="input"
+              rows="5"
+              class="w-full font-mono resize-none"
+            ></textarea>
+          </div>
 
-          <div class="w-1/2 flex flex-col justify-between">
-            <div>
+          <div class="w-1/2 flex flex-col justify-between divide-y">
+            <div class="px-4 py-2">
               <label for="user_output">Preview:</label>
               <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
             </div>
 
-            <div>
+            <div class="px-4 py-2">
               <label for="answer_output">Design:</label>
               <div
                 x-ref="answer_output"
@@ -45,14 +47,17 @@
           </div>
         </div>
 
-        <div class="w-1/2 flex items-center">
-          <p x-text="result" class="flex-1"></p>
-          <button
-            x-on:click="check()"
-            class="rounded px-4 py-2 text-white bg-indigo-600"
-          >
-            Check
-          </button>
+        <div class="flex divide-x border border-t-0 rounded-b">
+          <div class="w-1/2 flex items-center px-4 py-2">
+            <p x-text="result" class="flex-1"></p>
+            <button
+              x-on:click="check()"
+              class="rounded px-4 py-2 text-white bg-indigo-600"
+            >
+              Check
+            </button>
+          </div>
+          <div></div>
         </div>
       </div>
     </div>
