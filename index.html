@@ -31,7 +31,7 @@
     </div>
 
     <script type="text/javascript">
-      function diff(dom1, dom2) {
+      function diff(dom1, dom2, successFn, failureFn) {
         var scale = 2;
         domtoimage
           .toPixelData(dom1, {
@@ -53,8 +53,11 @@
                 },
               })
               .then(function (domPixels2) {
-                document.getElementById("result").innerText =
-                  JSON.stringify(domPixels1) == JSON.stringify(domPixels2);
+                if (JSON.stringify(domPixels1) == JSON.stringify(domPixels2)) {
+                  successFn();
+                } else {
+                  failureFn();
+                }
               });
           });
       }
@@ -71,7 +74,16 @@
             var target = document.getElementById("answer-1");
             var work = document.getElementById("input-1");
 
-            diff(target, work);
+            diff(
+              target,
+              work,
+              () => {
+                document.getElementById("result").innerText = "true";
+              },
+              () => {
+                document.getElementById("result").innerText = "false";
+              }
+            );
           },
         };
       }
