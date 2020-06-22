@@ -22,6 +22,7 @@
     <div class="relative bg-white overflow-hidden">
       <div class="max-w-screen-xl mx-auto">
         <div
+          x-data="{ open: false }"
           class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
         >
           <svg
@@ -50,6 +51,7 @@
                   </a>
                   <div class="-mr-2 flex items-center md:hidden">
                     <button
+                      x-on:click="open = true;"
                       type="button"
                       class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
                       id="main-menu"
@@ -108,17 +110,14 @@
             </nav>
           </div>
 
-          <!--
-        Mobile menu, show/hide based on menu open state.
-
-        Entering: "duration-150 ease-out"
-          From: "opacity-0 scale-95"
-          To: "opacity-100 scale-100"
-        Leaving: "duration-100 ease-in"
-          From: "opacity-100 scale-100"
-          To: "opacity-0 scale-95"
-      -->
           <div
+            x-show="open"
+            x-transition:enter="duration-150 ease-out"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="duration-100 ease-in"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
             class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
           >
             <div class="rounded-lg shadow-md">
@@ -138,6 +137,7 @@
                   </div>
                   <div class="-mr-2">
                     <button
+                      x-on:click="open = false;"
                       type="button"
                       class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
                       aria-label="Close menu"
