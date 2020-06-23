@@ -173,7 +173,7 @@
                 </div>
                 <div class="px-2 pt-2 pb-3">
                   <a
-                    href="#"
+                    href="#why"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                     role="menuitem"
                   >
@@ -257,7 +257,7 @@
       </div>
     </div>
 
-    <div class="py-12 bg-white">
+    <div class="py-12 bg-white" id="why">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <ul class="md:grid md:grid-cols-3 md:col-gap-8 md:row-gap-10">
           <li>
@@ -361,40 +361,63 @@
       </div>
     </div>
 
-    <div x-data="test()" class="container mx-auto">
-      <div class="flex divide-x border rounded">
-        <div class="px-4 w-1/2 flex flex-col justify-between">
-          <div>
-            <label for="input">Your solution:</label>
-            <textarea
-              x-model="input"
-              x-on:keydown="resetFlash()"
-              rows="5"
-              class="w-full font-mono resize-none"
-            ></textarea>
+    <div x-data="test()" class="container mx-auto px-4 space-y-6">
+      <div class="lg:text-center">
+        <p
+          class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
+        >
+          Demo
+        </p>
+        <h3
+          class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+        >
+          Try it out
+        </h3>
+        <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
+          We've prepared 3 demos for you.
+          <br />
+          Let's see if you can implement these designs pixel-perfectly.
+        </p>
+      </div>
+
+      <div class="shadow-lg">
+        <div class="flex divide-x rounded-lg border shadow">
+          <div class="px-4 w-1/2 flex flex-col justify-between">
+            <div>
+              <label for="input">Your solution:</label>
+              <textarea
+                x-model="input"
+                x-on:keydown="resetFlash()"
+                rows="5"
+                class="w-full font-mono resize-none"
+              ></textarea>
+            </div>
+
+            <div class="flex items-center px-4">
+              <p x-text="flash" class="flex-1"></p>
+              <button
+                x-on:click="check()"
+                class="rounded px-4 py-2 text-white bg-indigo-600"
+              >
+                Check
+              </button>
+            </div>
           </div>
 
-          <div class="flex items-center px-4">
-            <p x-text="flash" class="flex-1"></p>
-            <button
-              x-on:click="check()"
-              class="rounded px-4 py-2 text-white bg-indigo-600"
-            >
-              Check
-            </button>
-          </div>
-          <div></div>
-        </div>
+          <div class="w-1/2 flex flex-col justify-between divide-y">
+            <div class="px-4 py-2">
+              <label for="user_output">Preview:</label>
+              <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
+            </div>
 
-        <div class="w-1/2 flex flex-col justify-between divide-y">
-          <div class="px-4 py-2">
-            <label for="user_output">Preview:</label>
-            <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
-          </div>
-
-          <div class="px-4 py-2">
-            <label for="answer_output">Design:</label>
-            <div x-ref="answer_output" x-html="answer" class="px-4 py-4"></div>
+            <div class="px-4 py-2">
+              <label for="answer_output">Design:</label>
+              <div
+                x-ref="answer_output"
+                x-html="answer"
+                class="px-4 py-4"
+              ></div>
+            </div>
           </div>
         </div>
       </div>
