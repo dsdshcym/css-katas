@@ -395,12 +395,20 @@
 
             <div class="flex items-center px-4">
               <p x-text="flash" class="flex-1"></p>
-              <button
-                x-on:click="check()"
-                class="rounded px-4 py-2 text-white bg-indigo-600"
-              >
-                Check
-              </button>
+              <div class="space-x-2">
+                <button
+                  x-on:click="reset()"
+                  class="rounded px-4 py-2 text-white bg-red-600"
+                >
+                  Reset
+                </button>
+                <button
+                  x-on:click="check()"
+                  class="rounded px-4 py-2 text-white bg-indigo-600"
+                >
+                  Check
+                </button>
+              </div>
             </div>
           </div>
 
@@ -451,16 +459,17 @@
       function test() {
         let default_flash =
           "Submit your solution and see if it is pixel perfect.";
+        let init_input = `<div class="h-10 border">\n  Center Me!\n</div>`;
         return {
           flash: default_flash,
-          input: `<div class="h-10 border">
-  Center Me!
-</div>`,
-          answer: `<div class="h-10 border flex items-center justify-center">
-  Center Me!
-</div>`,
+          input: init_input,
+          answer: `<div class="h-10 border flex items-center justify-center">\n  Center Me!\n</div>`,
           resetFlash() {
             this.flash = default_flash;
+          },
+          reset() {
+            this.resetFlash();
+            this.input = init_input;
           },
           check() {
             var target = this.$refs.answer_output;
