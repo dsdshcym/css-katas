@@ -380,7 +380,7 @@
         </p>
       </div>
 
-      <div x-data="{ index: 0 }" @test-pass="index = 1">
+      <div x-data="{ index: 0 }" @test-pass="index += 1">
         <div x-show="index === 0" class="shadow-lg">
           <div class="shadow border rounded-lg">
             <div x-data="question0()" class="divide-y">
