@@ -395,12 +395,12 @@
             </div>
             <div class="flex divide-x">
               <div class="px-4 w-1/2 flex flex-col justify-between py-4">
-                <div>
+                <div class="rounded overflow-hidden">
                   <textarea
                     x-model="input"
                     x-on:keydown="resetFlash()"
                     rows="5"
-                    class="w-full font-mono resize-none"
+                    class="w-full h-full p-2 font-mono resize-none bg-gray-800 text-gray-100"
                   ></textarea>
                 </div>
 
