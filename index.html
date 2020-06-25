@@ -381,50 +381,70 @@
       </div>
 
       <div class="shadow-lg">
-        <div class="flex divide-x rounded-lg border shadow">
-          <div class="px-4 w-1/2 flex flex-col justify-between">
-            <div>
-              <label for="input">Your solution:</label>
-              <textarea
-                x-model="input"
-                x-on:keydown="resetFlash()"
-                rows="5"
-                class="w-full font-mono resize-none"
-              ></textarea>
+        <div class="shadow border rounded-lg">
+          <div class="divide-y">
+            <div class="px-4 py-4 space-y-2">
+              <h3 class="font-medium text-lg leading-5 tracking-tight">
+                How to center text?
+              </h3>
+              <p class="text-sm text-gray-500 max-w-2xl italic">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Maiores impedit perferendis suscipit eaque, iste dolor
+                cupiditate blanditiis ratione.
+              </p>
             </div>
+            <div class="flex divide-x">
+              <div class="px-4 w-1/2 flex flex-col justify-between py-4">
+                <div>
+                  <label for="input">Your solution:</label>
+                  <textarea
+                    x-model="input"
+                    x-on:keydown="resetFlash()"
+                    rows="5"
+                    class="w-full font-mono resize-none"
+                  ></textarea>
+                </div>
 
-            <div class="flex items-center px-4 space-x-4">
-              <div class="space-x-2">
-                <button
-                  x-on:click="check()"
-                  class="rounded px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-500 transition duration-150 ease-in-out"
+                <div
+                  class="flex flex-col md:flex-row md:items-baseline px-4 space-x-4"
                 >
-                  Check
-                </button>
-                <button
-                  x-on:click="reset()"
-                  class="rounded px-4 py-2 text-white bg-red-600 hover:bg-red-500 transition duration-150 ease-in-out"
-                >
-                  Reset
-                </button>
+                  <div class="flex space-x-2">
+                    <button
+                      x-on:click="check()"
+                      class="rounded px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-500 transition duration-150 ease-in-out"
+                    >
+                      Check
+                    </button>
+                    <button
+                      x-on:click="reset()"
+                      class="rounded px-4 py-2 text-white bg-red-600 hover:bg-red-500 transition duration-150 ease-in-out"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                  <p x-text="flash" class="flex-1"></p>
+                </div>
               </div>
-              <p x-text="flash" class="flex-1"></p>
-            </div>
-          </div>
 
-          <div class="w-1/2 flex flex-col justify-between divide-y">
-            <div class="px-4 py-2">
-              <label for="user_output">Preview:</label>
-              <div x-ref="user_output" x-html="input" class="px-4 py-4"></div>
-            </div>
+              <div class="w-1/2 flex flex-col justify-between divide-y">
+                <div class="px-4 py-2">
+                  <label for="user_output">Preview:</label>
+                  <div
+                    x-ref="user_output"
+                    x-html="input"
+                    class="px-4 py-4"
+                  ></div>
+                </div>
 
-            <div class="px-4 py-2">
-              <label for="answer_output">Design:</label>
-              <div
-                x-ref="answer_output"
-                x-html="answer"
-                class="px-4 py-4"
-              ></div>
+                <div class="px-4 py-2">
+                  <label for="answer_output">Design:</label>
+                  <div
+                    x-ref="answer_output"
+                    x-html="answer"
+                    class="px-4 py-4"
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
