@@ -380,7 +380,7 @@
         </p>
       </div>
 
-      <div x-data="{ show: 0 }" @test-pass="show = 1">
+      <div x-data="demos()" @test-pass="show = 1">
         <div x-show="show === 0" class="shadow-lg">
           <div class="shadow border rounded-lg">
             <div x-data="test()" class="divide-y">
@@ -550,6 +550,10 @@
             }
           });
         });
+      }
+
+      function demos() {
+        return { show: 0 };
       }
 
       function questionGenerator(title, description, init_input, answer) {
