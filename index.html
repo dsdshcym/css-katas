@@ -380,8 +380,8 @@
         </p>
       </div>
 
-      <div x-data="{ show: 0 }" @test-pass="show = 1">
-        <div x-show="show === 0" class="shadow-lg">
+      <div x-data="{ index: 0 }" @test-pass="index = 1">
+        <div x-show="index === 0" class="shadow-lg">
           <div class="shadow border rounded-lg">
             <div x-data="test()" class="divide-y">
               <div class="px-4 py-4 space-y-2">
@@ -451,7 +451,7 @@
         </div>
 
         <div
-          x-show="show === 1"
+          x-show="index === 1"
           class="shadow-lg"
           x-transition:enter="transition ease-in duration-500"
           x-transition:enter-start="transform translate-x-full"
