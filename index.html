@@ -653,7 +653,7 @@
                 dispatchFn("test-pass");
               },
               () => {
-                dispatchFn("test-failed");
+                this.flash = "Oops, Preview doesn't match the Design.";
               }
             );
           },
