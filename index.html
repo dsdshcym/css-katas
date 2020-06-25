@@ -383,7 +383,7 @@
       <div x-data="{ index: 0 }" @test-pass="index = 1">
         <div x-show="index === 0" class="shadow-lg">
           <div class="shadow border rounded-lg">
-            <div x-data="test()" class="divide-y">
+            <div x-data="question0()" class="divide-y">
               <div class="px-4 py-4 space-y-2">
                 <h3
                   class="font-medium text-lg leading-5 tracking-tight"
@@ -458,7 +458,7 @@
           x-transition:enter-end="transform translate-x-0"
         >
           <div class="shadow border rounded-lg">
-            <div x-data="test1()" class="divide-y">
+            <div x-data="question1()" class="divide-y">
               <div class="px-4 py-4 space-y-2">
                 <h3
                   class="font-medium text-lg leading-5 tracking-tight"
@@ -585,7 +585,7 @@
         };
       }
 
-      function test() {
+      function question0() {
         return questionGenerator(
           "How to center text?",
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
@@ -594,7 +594,7 @@
         );
       }
 
-      function test1() {
+      function question1() {
         return questionGenerator(
           "Tailwind CSS 101 (How to set colors)",
           "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
