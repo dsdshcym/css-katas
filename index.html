@@ -552,16 +552,14 @@
         });
       }
 
-      function test() {
+      function questionGenerator(title, description, init_input, answer) {
         let default_flash = "";
-        let init_input = `<div class="h-10 border">\n  Center Me!\n</div>`;
         return {
-          title: "How to center text?",
-          description:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+          title: title,
+          description: description,
           flash: default_flash,
           input: init_input,
-          answer: `<div class="h-10 border flex items-center justify-center">\n  Center Me!\n</div>`,
+          answer: answer,
           resetFlash() {
             this.flash = default_flash;
           },
@@ -587,39 +585,22 @@
         };
       }
 
-      function test1() {
-        let default_flash = "";
-        let init_input = `<button class="px-4 py-2 bg-black text-white">\n  Submit\n</button>`;
-        return {
-          title: "Tailwind CSS 101 (How to set colors)",
-          description:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-          flash: default_flash,
-          input: init_input,
-          answer: `<button class="px-4 py-2 bg-indigo-600 text-white">Submit</button>`,
-          resetFlash() {
-            this.flash = default_flash;
-          },
-          reset() {
-            this.resetFlash();
-            this.input = init_input;
-          },
-          check(dispatchFn) {
-            var target = this.$refs.answer_output;
-            var work = this.$refs.user_output;
+      function test() {
+        return questionGenerator(
+          "How to center text?",
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+          `<div class="h-10 border">\n  Center Me!\n</div>`,
+          `<div class="h-10 border flex items-center justify-center">\n  Center Me!\n</div>`
+        );
+      }
 
-            diff(
-              target,
-              work,
-              () => {
-                dispatchFn("test-pass");
-              },
-              () => {
-                dispatchFn("test-failed");
-              }
-            );
-          },
-        };
+      function test1() {
+        return questionGenerator(
+          "Tailwind CSS 101 (How to set colors)",
+          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+          `<button class="px-4 py-2 bg-black text-white">\n  Submit\n</button>`,
+          `<button class="px-4 py-2 bg-indigo-600 text-white">Submit</button>`
+        );
       }
     </script>
   </body>
