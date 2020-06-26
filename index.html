@@ -605,7 +605,7 @@
                     <div
                       x-ref="user_output"
                       x-html="input"
-                      class="flex justify-center px-4 py-4"
+                      class="px-4 py-4"
                     ></div>
                   </div>
 
@@ -614,7 +614,7 @@
                     <div
                       x-ref="answer_output"
                       x-html="answer"
-                      class="flex justify-center px-4 py-4"
+                      class="px-4 py-4"
                     ></div>
                   </div>
                 </div>
@@ -798,10 +798,29 @@
 
       function question2() {
         return questionGenerator(
-          "Tailwind CSS 101 (How to set colors)",
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-          `<button class="px-4 py-2 bg-black text-white">\n  Submit\n</button>`,
-          `<button class="px-4 py-2 bg-indigo-600 text-white">Submit</button>`
+          "Tailwind CSS 101 - Justify Content",
+          `<p>Congratulations! You've learned how to set paddings and colors with Tailwind CSS.</p>
+           <p>In this last demo, we'll learn something more complicated: how to align two buttons.</p>
+           <p>Modify the code below to make the upper buttons match the design below.</p>
+           <details class="space-y-1">
+            <summary class="cursor-pointer">Hint</summary>
+            <div class="px-4 space-y-2">
+              <p>
+                Flexbox is a powerful tool to build responsive layouts.
+                Adding <code>flex</code> class to a <code>div</code> would create a flex container.
+              </p>
+              <p>
+                Classes with prefix <code>justify-</code> controls how elements in a flex container are positioned.
+                <ul>
+                  <li><code>justify-center</code> would justify elements along the center.</li>
+                  <li><code>justify-between</code> would make sure there are equal spaces around each element.</li>
+                <ul>
+              </p>
+            </div>
+          </details>`,
+          `<div class="flex">\n  <button class="rounded px-4 py-2 bg-indigo-600 text-white">Submit</button>\n  <button class="rounded px-4 py-2 bg-red-500 text-white">Cancel</button>\n</div>`,
+          `<div class="flex justify-between"><button class="rounded px-4 py-2 bg-indigo-600 text-white">Submit</button>
+          <button class="rounded px-4 py-2 bg-red-500 text-white">Cancel</button></div>`
         );
       }
     </script>
