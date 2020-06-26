@@ -769,16 +769,12 @@
       function question1() {
         return questionGenerator(
           "Tailwind CSS 101 - Colors",
-          `<p class="italic">Modify the code below to make the upper button match the design below.</p>
+          `<p>Congratulations! You've learned how to use <code>px-*</code> and <code>py-*</code> to control paddings.</p>
+           <p>Now we need to adjust background color and text color.</p>
+           <p>Modify the code below to make the upper button match the design below.</p>
            <details class="space-y-1">
             <summary class="cursor-pointer">Hint</summary>
             <div class="px-4 space-y-2">
-              <p>
-                Tailwind CSS is a utility-first CSS framework.
-                It provides various utility classes for you to style an HTML element.
-                Don't worry if "utility" sounds unfamiliar to you.
-                Let's use colors as our first example.
-              </p>
               <p>
                 In Tailwind CSS, classes with prefix <code>bg-</code> are utilities to style an element's background.
                 <ul>
@@ -795,8 +791,8 @@
               </p>
             </div>
           </details>`,
-          `<button class="border px-4 py-2 bg-white text-black">\n  Submit\n</button>`,
-          `<button class="border px-4 py-2 bg-black text-white">Submit</button>`
+          `<button class="border rounded px-4 py-2 bg-white text-black">\n  Submit\n</button>`,
+          `<button class="border rounded px-4 py-2 bg-black text-white">Submit</button>`
         );
       }
 
