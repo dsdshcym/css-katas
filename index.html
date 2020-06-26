@@ -647,6 +647,26 @@
           </div>
         </div>
 
+        <div
+          x-show="index === 3"
+          class="shadow-lg"
+          x-transition:enter="transition ease-in duration-500"
+          x-transition:enter-start="transform translate-x-full"
+          x-transition:enter-end="transform translate-x-0"
+        >
+          <div class="shadow border rounded-lg">
+            <div class="px-4 py-4 space-y-2">
+              <h3 class="font-medium text-lg leading-5 tracking-tight">
+                Congratulations, you've finished all 3 demos!
+              </h3>
+              <p class="text-sm text-gray-500 max-w-2xl italic">
+                If you want more exercises like these, sign up for our early
+                access below.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div class="flex justify-center mt-5 space-x-2">
           <button @click="index = 0">
             <div
