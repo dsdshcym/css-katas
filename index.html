@@ -622,6 +622,27 @@
             </div>
           </div>
         </div>
+
+        <div class="flex justify-center mt-5 space-x-2">
+          <button @click="index = 0">
+            <div
+              :class="{ 'bg-gray-100 hover:bg-gray-50': index !== 0 }"
+              class="border p-1 shadow"
+            ></div>
+          </button>
+          <button @click="index = 1">
+            <div
+              :class="{ 'bg-gray-100 hover:bg-gray-50': index !== 1 }"
+              class="border p-1 shadow"
+            ></div>
+          </button>
+          <button @click="index = 2">
+            <div
+              :class="{ 'bg-gray-100 hover:bg-gray-50': index !== 2 }"
+              class="border p-1 shadow"
+            ></div>
+          </button>
+        </div>
       </div>
     </div>
 
