@@ -765,10 +765,38 @@
 
       function question1() {
         return questionGenerator(
-          "How to center text?",
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-          `<div class="h-10 border">\n  Center Me!\n</div>`,
-          `<div class="h-10 border flex items-center justify-center">\n  Center Me!\n</div>`
+          "Tailwind CSS 101 - Paddings",
+          `<p class="italic">Modify the code below to make the upper button match the design below.</p>
+           <details class="space-y-1">
+            <summary class="cursor-pointer">Hint</summary>
+            <div class="px-4 space-y-2">
+              <p>
+                Tailwind CSS is a utility-first CSS framework.
+                It provides various utility classes for you to style an HTML element.
+                Don't worry if "utility" sounds unfamiliar to you.
+                Let's see how to make a button with utilities.
+              </p>
+              <p>
+                To make a button, we need to add some spaces (paddings) between text and border.
+              </p>
+              <p>
+                In Tailwind CSS, classes with prefix <code>px-</code> are utilities to control horizontal paddings.
+                <ul>
+                  <li><code>px-2</code> would add <code>0.5 rem (8 pixels)</code> padding to both left and right.</li>
+                  <li><code>px-4</code> would add <code>1 rem (16 pixels)</code> padding to both left and right.</li>
+                </ul>
+              </p>
+              <p>
+                Similarly, classes with prefix <code>py-</code> controls vertical paddings.
+                <ul>
+                  <li><code>py-2</code> would add <code>0.5 rem (8 pixels)</code> padding to both top and bottom.</li>
+                  <li><code>py-4</code> would add <code>1 rem (16 pixels)</code> padding to both top and bottom.</li>
+                <ul>
+              </p>
+            </div>
+          </details>`,
+          `<button class="border rounded">\n  Submit\n</button>`,
+          `<button class="border rounded px-4 py-2">Submit</button>`
         );
       }
 
