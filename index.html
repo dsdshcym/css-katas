@@ -701,9 +701,16 @@
                 Congratulations, you've finished all 3 demos!
               </h3>
               <p class="text-sm text-gray-500 max-w-2xl italic">
-                If you want more exercises like these, sign up for our early
-                access below.
+                If these exercises are useful to you, please share it to more
+                people like you!
               </p>
+              <a
+                class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=I%20just%20finished%203%20Tailwind%20CSS%20exercises%20on%20CSSKatas,%20check%20it%20out!&url=https://yiming.dev/css-katas/&hashtags=CSS,tailwindcss,webdev"
+                data-size="large"
+              >
+                Tweet
+              </a>
             </div>
           </div>
         </div>
@@ -908,6 +915,26 @@
           <button class="rounded px-4 py-2 bg-red-500 text-white">Cancel</button></div>`
         );
       }
+    </script>
+
+    <script>
+      window.twttr = (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function (f) {
+          t._e.push(f);
+        };
+
+        return t;
+      })(document, "script", "twitter-wjs");
     </script>
 
     <style type="text/css">
