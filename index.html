@@ -691,32 +691,53 @@
           </div>
         </div>
 
-        <div
-          x-show="index === 3"
-          class="shadow-lg"
-          x-transition:enter="transition ease-in duration-500"
-          x-transition:enter-start="transform translate-x-full"
-          x-transition:enter-end="transform translate-x-0"
-        >
-          <div class="shadow border rounded-lg">
-            <div class="px-4 py-4 space-y-2">
-              <h3 class="font-medium text-lg leading-5 tracking-tight">
-                Congratulations, you've finished all 3 demos!
-              </h3>
-              <p class="text-sm text-gray-500 max-w-2xl italic">
-                If these exercises are useful to you, please share it to more
-                people like you!
-              </p>
-              <a
-                class="twitter-share-button"
-                href="https://twitter.com/intent/tweet?text=I%20just%20finished%203%20Tailwind%20CSS%20exercises%20on%20CSSKatas,%20check%20it%20out!&url=https://yiming.dev/css-katas/&hashtags=CSS,tailwindcss,webdev"
-                data-size="large"
-              >
-                Tweet
-              </a>
+        <template x-if="index === 3">
+          <div
+            class="shadow-lg"
+            x-transition:enter="transition ease-in duration-500"
+            x-transition:enter-start="transform translate-x-full"
+            x-transition:enter-end="transform translate-x-0"
+          >
+            <div class="shadow border rounded-lg">
+              <div class="px-4 py-4 space-y-2">
+                <h3 class="font-medium text-lg leading-5 tracking-tight">
+                  Congratulations, you've finished all 3 demos!
+                </h3>
+                <p class="text-sm text-gray-500 max-w-2xl italic">
+                  If these exercises are useful to you, please share it to more
+                  people like you!
+                </p>
+                <a
+                  class="twitter-share-button"
+                  href="https://twitter.com/intent/tweet?text=I%20just%20finished%203%20Tailwind%20CSS%20exercises%20on%20CSSKatas,%20check%20it%20out!&url=https://yiming.dev/css-katas/&hashtags=CSS,tailwindcss,webdev"
+                  data-size="large"
+                >
+                  Tweet
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+
+          <script>
+            window.twttr = (function (d, s, id) {
+              var js,
+                fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+              if (d.getElementById(id)) return t;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+
+              t._e = [];
+              t.ready = function (f) {
+                t._e.push(f);
+              };
+
+              return t;
+            })(document, "script", "twitter-wjs");
+          </script>
+        </template>
 
         <div class="flex justify-center mt-5 space-x-2">
           <button @click="index = 0">
@@ -918,26 +939,6 @@
           <button class="rounded px-4 py-2 bg-red-500 text-white">Cancel</button></div>`
         );
       }
-    </script>
-
-    <script>
-      window.twttr = (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0],
-          t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
-
-        t._e = [];
-        t.ready = function (f) {
-          t._e.push(f);
-        };
-
-        return t;
-      })(document, "script", "twitter-wjs");
     </script>
 
     <style type="text/css">
