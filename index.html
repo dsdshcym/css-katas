@@ -531,8 +531,8 @@
           x-show="index === 1"
           class="shadow-lg"
           x-transition:enter="transition ease-in duration-500"
-          x-transition:enter-start="transform translate-x-full"
-          x-transition:enter-end="transform translate-x-0"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
         >
           <div class="shadow border rounded-lg">
             <div x-data="question1()" class="divide-y">
@@ -618,8 +618,8 @@
           x-show="index === 2"
           class="shadow-lg"
           x-transition:enter="transition ease-in duration-500"
-          x-transition:enter-start="transform translate-x-full"
-          x-transition:enter-end="transform translate-x-0"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
         >
           <div class="shadow border rounded-lg">
             <div x-data="question2()" class="divide-y">
