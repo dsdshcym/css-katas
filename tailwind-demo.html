@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@dsdshcym" />
+    <meta name="twitter:creator" content="@dsdshcym" />
+    <meta
+      name="twitter:image"
+      content="https://yiming.dev/css-katas/logo.png"
+    />
+    <meta name="author" content="Yiming Chen" />
+    <meta
+      name="description"
+      content="A better way to sharpen your CSS skills."
+    />
+    <meta
+      property="og:title"
+      content="CSSKatas - Learn CSS via interactive exercises."
+    />
+    <meta
+      property="og:description"
+      content="A better way to sharpen your CSS skills."
+    />
+    <meta name="og:image" content="https://yiming.dev/css-katas/logo.png" />
+    <title>CSSKatas - Learn CSS via interactive exercises.</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="style/output.min.css" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-171010540-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-171010540-1");
+    </script>
+
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/dom-to-image-more@2.8.0/dist/dom-to-image-more.min.js"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+
+  <body class="text-gray-900">
+    <div class="relative bg-white overflow-hidden">
+      <div class="max-w-screen-xl mx-auto">
+        <div
+          x-data="{ open: false }"
+          class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
+        >
+          <svg
+            class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+            fill="currentColor"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <polygon points="50,0 100,0 50,100 0,100" />
+          </svg>
+
+          <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+            <nav
+              class="relative flex items-center justify-between sm:h-10 lg:justify-start"
+            >
+              <div
+                class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0"
+              >
+                <div class="flex items-center justify-between w-full md:w-auto">
+                  <a href="#" aria-label="Home">
+                    <div class="flex font-sans items-baseline space-x-0.5">
+                      <span
+                        class="text-3xl font-black tracking-tighter"
+                        style="color: #264de4;"
+                      >
+                        CSS
+                      </span>
+                      <span
+                        class="text-3xl font-black tracking-tighter"
+                        style="color: #e4264d;"
+                      >
+                        Katas
+                      </span>
+                    </div>
+                  </a>
+                  <div class="-mr-2 flex items-center md:hidden">
+                    <button
+                      x-on:click="open = true;"
+                      type="button"
+                      class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                      id="main-menu"
+                      aria-label="Main menu"
+                      aria-haspopup="true"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        stroke="currentColor"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:block md:ml-10 md:pr-4">
+                <a
+                  href="#features"
+                  class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
+                >
+                  Features
+                </a>
+                <a
+                  href="#demo"
+                  class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
+                >
+                  Demo
+                </a>
+                <a
+                  href="#sign-up"
+                  class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 transition duration-150 ease-in-out"
+                >
+                  Sign-up
+                </a>
+              </div>
+            </nav>
+          </div>
+
+          <div
+            x-show="open"
+            x-transition:enter="duration-150 ease-out"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="duration-100 ease-in"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          >
+            <div class="rounded-lg shadow-md">
+              <div
+                class="rounded-lg bg-white shadow-xs overflow-hidden"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="main-menu"
+              >
+                <div class="px-5 pt-4 flex items-center justify-between">
+                  <div>
+                    <div class="flex font-sans items-baseline space-x-0.5">
+                      <span
+                        class="text-3xl font-black tracking-tighter"
+                        style="color: #264de4;"
+                      >
+                        CSS
+                      </span>
+                      <span
+                        class="text-3xl font-black tracking-tighter"
+                        style="color: #e4264d;"
+                      >
+                        Katas
+                      </span>
+                    </div>
+                  </div>
+                  <div class="-mr-2">
+                    <button
+                      x-on:click="open = false;"
+                      type="button"
+                      class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                      aria-label="Close menu"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        stroke="currentColor"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="px-2 pt-2 pb-3">
+                  <a
+                    href="#features"
+                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    role="menuitem"
+                  >
+                    Features
+                  </a>
+                  <a
+                    href="#demo"
+                    class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+                    role="menuitem"
+                  >
+                    Demo
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="#sign-up"
+                    class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out"
+                    role="menuitem"
+                  >
+                    Sign-up
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <main
+            class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
+          >
+            <div class="sm:text-center lg:text-left">
+              <h2
+                class="text-3xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-4xl sm:leading-none md:text-5xl"
+              >
+                A better way to sharpen
+                <br />
+                <span class="text-indigo-600">your CSS skills</span>
+              </h2>
+              <p
+                class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+              >
+                Improve your CSS skills by implementing real designs. CSSKatas
+                will provide immediate feedback for your solutions.
+              </p>
+              <div
+                class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
+              >
+                <div class="rounded-md shadow">
+                  <a
+                    href="#sign-up"
+                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+                  >
+                    Sign-up for Beta
+                  </a>
+                </div>
+                <div class="mt-3 sm:mt-0 sm:ml-3">
+                  <a
+                    href="#demo"
+                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+                  >
+                    Live demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+      <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img
+          class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+          src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&h=1920&q=80&crop=left"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="py-12 bg-white" id="features">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ul
+          class="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10 space-y-10 md:space-y-0"
+        >
+          <li>
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div
+                  class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg leading-6 font-medium text-gray-900">
+                  Immediate Feedback
+                </h4>
+                <p class="mt-2 text-base leading-6 text-gray-500">
+                  CSSKatas can tell you immediately if your solution matches the
+                  design. So you can learn as much as you can, as fast as you
+                  can.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div
+                  class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg leading-6 font-medium text-gray-900">
+                  Use-case driven exercises
+                </h4>
+                <p class="mt-2 text-base leading-6 text-gray-500">
+                  CSSKatas exercises are designed around real world use-cases.
+                  These exercises will guide you to implement buttons, navbars,
+                  sidebars and other web components.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div
+                  class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg leading-6 font-medium text-gray-900">
+                  CSS frameworks support
+                </h4>
+                <p class="mt-2 text-base leading-6 text-gray-500">
+                  Want to learn a new CSS framework? No problem. We would add
+                  tracks for your favorite frameworks. CSSKatas is your CSS
+                  playground.
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div
+                  class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg leading-6 font-medium text-gray-900">
+                  Collaborative learning
+                </h4>
+                <p class="mt-2 text-base leading-6 text-gray-500">
+                  Learn CSS tricks from others' solutions. Share your own katas
+                  with the community.
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-screen-xl mx-auto px-4 space-y-6" id="demo">
+      <div class="lg:text-center">
+        <p
+          class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
+        >
+          Demo
+        </p>
+        <h3
+          class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+        >
+          Try it out
+        </h3>
+        <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
+          We've prepared 3 demos for you.
+          <br />
+          Let's see if you can implement these designs with
+          <a
+            href="https://tailwindcss.com/"
+            class="inline-block underline hover:cursor-pointer"
+          >
+            Tailwind CSS.
+          </a>
+        </p>
+      </div>
+
+      <div x-data="{ index: 0 }" @test-pass="index += 1">
+        <div x-show="index === 0" class="shadow-lg">
+          <div class="shadow border rounded-lg">
+            <div x-data="question0()" class="divide-y">
+              <div class="px-4 py-4 space-y-2">
+                <h3
+                  class="font-medium text-lg leading-5 tracking-tight"
+                  x-text="title"
+                ></h3>
+                <div class="text-sm text-gray-500 max-w-2xl italic">
+                  <p class="italic">
+                    Modify the code below to make the upper button match the
+                    design below.
+                  </p>
+                  <details class="space-y-1">
+                    <summary class="cursor-pointer">Hint</summary>
+                    <div class="px-4 space-y-2">
+                      <p>
+                        Tailwind CSS is a utility-first CSS framework. It
+                        provides various utility classes for you to style an
+                        HTML element. Don't worry if "utility" sounds unfamiliar
+                        to you. Let's see how to make a button with utilities.
+                      </p>
+                      <p>
+                        To make a button, we need to add some spaces (paddings)
+                        between text and border.
+                      </p>
+                      <p>
+                        In Tailwind CSS, classes with prefix
+                        <code>px-</code>
+                        are utilities to control horizontal paddings.
+                      </p>
+                      <ul>
+                        <li>
+                          <code>px-2</code>
+                          would add
+                          <code>0.5 rem (8 pixels)</code>
+                          padding to both left and right.
+                        </li>
+                        <li>
+                          <code>px-4</code>
+                          would add
+                          <code>1 rem (16 pixels)</code>
+                          padding to both left and right.
+                        </li>
+                      </ul>
+                      <p>
+                        Similarly, classes with prefix
+                        <code>py-</code>
+                        controls vertical paddings.
+                      </p>
+                      <ul>
+                        <li>
+                          <code>py-2</code>
+                          would add
+                          <code>0.5 rem (8 pixels)</code>
+                          padding to both top and bottom.
+                        </li>
+                        <li>
+                          <code>py-4</code>
+                          would add
+                          <code>1 rem (16 pixels)</code>
+                          padding to both top and bottom.
+                        </li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </div>
+              <div
+                class="flex flex-col divide-y sm:flex-row sm:divide-x sm:divide-y-0"
+              >
+                <div
+                  class="px-4 flex-1 flex flex-col justify-between py-4 space-y-2"
+                >
+                  <div class="rounded overflow-hidden">
+                    <textarea
+                      x-model="input"
+                      x-on:keydown="resetFlash()"
+                      rows="5"
+                      class="w-full h-full p-2 font-mono resize-none bg-gray-800 text-gray-100"
+                    ></textarea>
+                  </div>
+
+                  <div
+                    class="flex flex-col space-y-2 md:flex-row md:items-baseline md:space-x-4"
+                  >
+                    <div class="flex space-x-2">
+                      <button
+                        x-on:click="check($dispatch)"
+                        class="rounded px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-500 transition duration-150 ease-in-out"
+                      >
+                        Check
+                      </button>
+                      <button
+                        x-on:click="reset()"
+                        class="rounded px-4 py-2 text-white bg-red-600 hover:bg-red-500 transition duration-150 ease-in-out"
+                      >
+                        Reset
+                      </button>
+                    </div>
+                    <p
+                      x-show="flash"
+                      x-text="flash"
+                      class="border-l-4 border-red-500 bg-gray-100 text-gray-700 px-2 py-2 text-sm flex-1"
+                    ></p>
+                  </div>
+                </div>
+
+                <div class="flex-1 flex flex-col justify-between divide-y">
+                  <div class="px-4 py-2">
+                    <label for="user_output">Preview:</label>
+                    <div class="flex justify-center">
+                      <div
+                        x-ref="user_output"
+                        x-html="input"
+                        class="px-4 py-4"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div class="px-4 py-2">
+                    <label for="answer_output">Design:</label>
+                    <div class="flex justify-center">
+                      <div
+                        x-ref="answer_output"
+                        x-html="answer"
+                        class="px-4 py-4"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          x-show="index === 1"
+          class="shadow-lg"
+          x-transition:enter="transition ease-in duration-500"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+        >
+          <div class="shadow border rounded-lg">
+            <div x-data="question1()" class="divide-y">
+              <div class="px-4 py-4 space-y-2">
+                <h3
+                  class="font-medium text-lg leading-5 tracking-tight"
+                  x-text="title"
+                ></h3>
+                <div class="text-sm text-gray-500 max-w-2xl italic">
+                  <p>
+                    Congratulations! You've learned how to use
+                    <code>px-*</code>
+                    and
+                    <code>py-*</code>
+                    to control paddings.
+                  </p>
+                  <p>Now we need to adjust background color and text color.</p>
+                  <p>
+                    Modify the code below to make the upper button match the
+                    design below.
+                  </p>
+                  <details class="space-y-1">
+                    <summary class="cursor-pointer">Hint</summary>
+                    <div class="px-4 space-y-2">
+                      <p>
+                        In Tailwind CSS, classes with prefix
+                        <code>bg-</code>
+                        are utilities to style an element's background.
+                      </p>
+                      <ul>
+                        <li>
+                          <code>bg-black</code>
+                          would set background color to black.
+                        </li>
+                        <li>
+                          <code>bg-white</code>
+                          would set background color to white.
+                        </li>
+                      </ul>
+                      <p>
+                        Similarly, classes with prefix
+                        <code>text-</code>
+                        controls text styles in this element.
+                      </p>
+
+                      <ul>
+                        <li>
+                          <code>text-black</code>
+                          would set background color to black.
+                        </li>
+                        <li>
+                          <code>text-white</code>
+                          would set background color to white.
+                        </li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </div>
+              <div
+                class="flex flex-col divide-y sm:flex-row sm:divide-x sm:divide-y-0"
+              >
+                <div
+                  class="px-4 flex-1 flex flex-col justify-between py-4 space-y-2"
+                >
+                  <div class="rounded overflow-hidden">
+                    <textarea
+                      x-model="input"
+                      x-on:keydown="resetFlash()"
+                      rows="5"
+                      class="w-full h-full p-2 font-mono resize-none bg-gray-800 text-gray-100"
+                    ></textarea>
+                  </div>
+
+                  <div
+                    class="flex flex-col space-y-2 md:flex-row md:items-baseline md:space-x-4"
+                  >
+                    <div class="flex space-x-2">
+                      <button
+                        x-on:click="check($dispatch)"
+                        class="rounded px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-500 transition duration-150 ease-in-out"
+                      >
+                        Check
+                      </button>
+                      <button
+                        x-on:click="reset()"
+                        class="rounded px-4 py-2 text-white bg-red-600 hover:bg-red-500 transition duration-150 ease-in-out"
+                      >
+                        Reset
+                      </button>
+                    </div>
+                    <p
+                      x-show="flash"
+                      x-text="flash"
+                      class="border-l-4 border-red-500 bg-gray-100 text-gray-700 px-2 py-2 text-sm flex-1"
+                    ></p>
+                  </div>
+                </div>
+
+                <div class="flex-1 flex flex-col justify-between divide-y">
+                  <div class="px-4 py-2">
+                    <label for="user_output">Preview:</label>
+                    <div class="flex justify-center">
+                      <div
+                        x-ref="user_output"
+                        x-html="input"
+                        class="px-4 py-4"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div class="px-4 py-2">
+                    <label for="answer_output">Design:</label>
+                    <div class="flex justify-center">
+                      <div
+                        x-ref="answer_output"
+                        x-html="answer"
+                        class="px-4 py-4"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          x-show="index === 2"
+          class="shadow-lg"
+          x-transition:enter="transition ease-in duration-500"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+        >
+          <div class="shadow border rounded-lg">
+            <div x-data="question2()" class="divide-y">
+              <div class="px-4 py-4 space-y-2">
+                <h3
+                  class="font-medium text-lg leading-5 tracking-tight"
+                  x-text="title"
+                ></h3>
+                <div class="text-sm text-gray-500 max-w-2xl italic">
+                  <p>
+                    Congratulations! You've learned how to set paddings and
+                    colors with Tailwind CSS.
+                  </p>
+                  <p>
+                    In this last demo, we'll learn something more complicated:
+                    how to align two buttons.
+                  </p>
+                  <p>
+                    Modify the code below to make the upper buttons match the
+                    design below.
+                  </p>
+                  <details class="space-y-1">
+                    <summary class="cursor-pointer">Hint</summary>
+                    <div class="px-4 space-y-2">
+                      <p>
+                        Flexbox is a powerful tool to build responsive layouts.
+                        Adding
+                        <code>flex</code>
+                        class to a
+                        <code>div</code>
+                        would create a flex container.
+                      </p>
+
+                      <p>
+                        Classes with prefix
+                        <code>justify-</code>
+                        controls how elements in a flex container are
+                        positioned.
+                      </p>
+
+                      <ul>
+                        <li>
+                          <code>justify-center</code>
+                          would justify elements along the center.
+                        </li>
+                        <li>
+                          <code>justify-between</code>
+                          would make sure there are equal spaces around each
+                          element.
+                        </li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+              </div>
+              <div
+                class="flex flex-col divide-y sm:flex-row sm:divide-x sm:divide-y-0"
+              >
+                <div
+                  class="px-4 flex-1 flex flex-col justify-between py-4 space-y-2"
+                >
+                  <div class="rounded overflow-hidden">
+                    <textarea
+                      x-model="input"
+                      x-on:keydown="resetFlash()"
+                      rows="5"
+                      class="w-full h-full p-2 font-mono resize-none bg-gray-800 text-gray-100"
+                    ></textarea>
+                  </div>
+
+                  <div
+                    class="flex flex-col space-y-2 md:flex-row md:items-baseline md:space-x-4"
+                  >
+                    <div class="flex space-x-2">
+                      <button
+                        x-on:click="check($dispatch)"
+                        class="rounded px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-500 transition duration-150 ease-in-out"
+                      >
+                        Check
+                      </button>
+                      <button
+                        x-on:click="reset()"
+                        class="rounded px-4 py-2 text-white bg-red-600 hover:bg-red-500 transition duration-150 ease-in-out"
+                      >
+                        Reset
+                      </button>
+                    </div>
+                    <p
+                      x-show="flash"
+                      x-text="flash"
+                      class="border-l-4 border-red-500 bg-gray-100 text-gray-700 px-2 py-2 text-sm flex-1"
+                    ></p>
+                  </div>
+                </div>
+
+                <div class="flex-1 flex flex-col justify-between divide-y">
+                  <div class="px-4 py-2">
+                    <label for="user_output">Preview:</label>
+                    <div
+                      x-ref="user_output"
+                      x-html="input"
+                      class="px-4 py-4"
+                    ></div>
+                  </div>
+
+                  <div class="px-4 py-2">
+                    <label for="answer_output">Design:</label>
+                    <div
+                      x-ref="answer_output"
+                      x-html="answer"
+                      class="px-4 py-4"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <template x-if="index === 3">
+          <div
+            class="shadow-lg"
+            x-transition:enter="transition ease-in duration-500"
+            x-transition:enter-start="transform translate-x-full"
+            x-transition:enter-end="transform translate-x-0"
+          >
+            <div class="shadow border rounded-lg">
+              <div class="px-4 py-4 space-y-2">
+                <h3 class="font-medium text-lg leading-5 tracking-tight">
+                  Congratulations, you've finished all 3 demos!
+                </h3>
+                <p class="text-sm text-gray-500 max-w-2xl italic">
+                  If these exercises are useful to you, please share it to more
+                  people like you!
+                </p>
+                <a
+                  class="twitter-share-button"
+                  href="https://twitter.com/intent/tweet?text=I%20just%20finished%203%20Tailwind%20CSS%20exercises%20on%20CSSKatas,%20check%20it%20out!&url=https://yiming.dev/css-katas/&hashtags=CSS,tailwindcss,webdev"
+                  data-size="large"
+                >
+                  Tweet
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            window.twttr = (function (d, s, id) {
+              var js,
+                fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+              if (d.getElementById(id)) return t;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+
+              t._e = [];
+              t.ready = function (f) {
+                t._e.push(f);
+              };
+
+              return t;
+            })(document, "script", "twitter-wjs");
+          </script>
+        </template>
+
+        <div class="flex justify-center mt-5 space-x-2">
+          <button @click="index = 0">
+            <div
+              :class="{ 'bg-gray-100 hover:bg-gray-50': index !== 0 }"
+              class="border p-1 shadow"
+            ></div>
+          </button>
+          <button @click="index = 1">
+            <div
+              :class="{ 'bg-gray-100 hover:bg-gray-50': index !== 1 }"
+              class="border p-1 shadow"
+            ></div>
+          </button>
+          <button @click="index = 2">
+            <div
+              :class="{ 'bg-gray-100 hover:bg-gray-50': index !== 2 }"
+              class="border p-1 shadow"
+            ></div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-screen-xl mx-auto bg-gray-800 mt-12 py-10" id="sign-up">
+      <div
+        class="px-4 md:px-10 md:space-x-4 flex flex-col md:flex-row md:justify-between md:items-center"
+      >
+        <div class="space-y-2">
+          <h3
+            class="text-white text-2xl leading-8 sm:text-3xl sm:leading-none md:text-4xl font-extrabold tracking-tight"
+          >
+            Sign up for early access
+          </h3>
+          <p class="text-gray-400 max-w-md">
+            Drop us your email and we'll send you an early invitaion as soon as
+            CSSKatas is ready.
+          </p>
+        </div>
+        <div class="flex-1 pt-4 xl:pt-0">
+          <script
+            async
+            data-uid="c6b062ddfe"
+            src="https://css-katas.ck.page/c6b062ddfe/index.js"
+          ></script>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function toPixelData(dom) {
+        var scale = 2;
+        return domtoimage.toPixelData(dom, {
+          width: dom.clientWidth * scale,
+          height: dom.clientHeight * scale,
+          style: {
+            transform: `scale(${scale})`,
+            transformOrigin: "top left",
+          },
+        });
+      }
+
+      function diff(dom1, dom2, successFn, failureFn) {
+        toPixelData(dom1).then(function (domPixels1) {
+          toPixelData(dom2).then(function (domPixels2) {
+            if (JSON.stringify(domPixels1) == JSON.stringify(domPixels2)) {
+              successFn();
+            } else {
+              failureFn();
+            }
+          });
+        });
+      }
+
+      function questionGenerator(title, description, init_input, answer) {
+        let default_flash = "";
+        return {
+          title: title,
+          description: description,
+          flash: default_flash,
+          input: init_input,
+          answer: answer,
+          resetFlash() {
+            this.flash = default_flash;
+          },
+          reset() {
+            this.resetFlash();
+            this.input = init_input;
+          },
+          check(dispatchFn) {
+            var target = this.$refs.answer_output;
+            var work = this.$refs.user_output;
+
+            diff(
+              target,
+              work,
+              () => {
+                dispatchFn("test-pass");
+              },
+              () => {
+                this.flash = "Oops, Preview doesn't match the Design.";
+              }
+            );
+          },
+        };
+      }
+
+      function question0() {
+        return questionGenerator(
+          "Tailwind CSS 101 - Paddings",
+          ``,
+          `<button class="border rounded">\n  Submit\n</button>`,
+          `<button class="border rounded px-4 py-2">Submit</button>`
+        );
+      }
+
+      function question1() {
+        return questionGenerator(
+          "Tailwind CSS 101 - Colors",
+          ``,
+          `<button class="border rounded px-4 py-2 bg-white text-black">\n  Submit\n</button>`,
+          `<button class="border rounded px-4 py-2 bg-black text-white">Submit</button>`
+        );
+      }
+
+      function question2() {
+        return questionGenerator(
+          "Tailwind CSS 101 - Justify Content",
+          ``,
+          `<div class="flex">\n  <button class="rounded px-4 py-2 bg-indigo-600 text-white">Submit</button>\n  <button class="rounded px-4 py-2 bg-red-500 text-white">Cancel</button>\n</div>`,
+          `<div class="flex justify-between"><button class="rounded px-4 py-2 bg-indigo-600 text-white">Submit</button>
+          <button class="rounded px-4 py-2 bg-red-500 text-white">Cancel</button></div>`
+        );
+      }
+    </script>
+
+    <style type="text/css">
+      a.formkit-powered-by {
+        display: none !important;
+      }
+    </style>
+  </body>
+</html>
